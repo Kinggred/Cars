@@ -1,6 +1,8 @@
-package net.maks.cars.personal;
+package net.maks.cars.personal.Fiat;
 
-public class Fiat extends Personal{
+import net.maks.cars.personal.Personal;
+
+public class Fiat extends Personal {
     protected boolean is_stolen;
 
     public Fiat(int horse_power, int door_count, boolean has_isofix) {
