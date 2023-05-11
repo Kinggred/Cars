@@ -32,4 +32,6 @@ public class Factory {
 //{
 //    "Volvo": VolvoInstruction,
 //    "Fiat": FiatInstruction
+//
+//Muszę zrobić zmianę w pliku żeby wrzucić na repo
 //}
