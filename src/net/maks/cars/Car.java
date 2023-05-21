@@ -6,9 +6,9 @@ public abstract class Car implements Serializable {
     protected int horse_power;
     protected int door_count;
 
-    public Car(int horse_power, int door_count) {
-        this.horse_power = horse_power;
-        this.door_count = door_count;
+    public Car(Object... arguments) {
+        this.horse_power = (int) arguments[0];
+        this.door_count = (int) arguments[1];
     }
 
     public float get_PowerInKW() {

@@ -20,8 +20,8 @@ public class Main {
         factory.addInstruction(new FiatInstruction());
         factory.addInstruction(new VolvoInstruction());
 
-        cars.add(factory.getCarByName("Volvo"));
-        cars.add(factory.getCarByName("Fiat"));
+        cars.add(factory.getCarByName("Volvo", 95, true));
+        cars.add(factory.getCarByName("Fiat", 70, 3, false));
 
 
 

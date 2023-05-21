@@ -5,8 +5,8 @@ import net.maks.cars.personal.Personal;
 public class Fiat extends Personal {
     protected boolean is_stolen;
 
-    public Fiat(int horse_power, int door_count, boolean has_isofix) {
-        super(horse_power, door_count, has_isofix);
+    public Fiat(Object... arguments) {
+        super(arguments);
         this.is_stolen = determine_is_stolen();
     }
 

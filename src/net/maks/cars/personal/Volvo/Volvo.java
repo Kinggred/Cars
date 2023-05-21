@@ -5,8 +5,8 @@ import net.maks.cars.personal.Personal;
 public class Volvo extends Personal {
     protected boolean heated_seats;
 
-    public Volvo(int horse_power, int door_count, boolean has_isofix) {
-        super(horse_power, door_count, has_isofix);
+    public Volvo(Object... arguments) {
+        super(arguments);
         this.heated_seats = determine_has_heated_seats();
     }
 
