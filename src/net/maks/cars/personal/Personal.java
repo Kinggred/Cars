@@ -8,7 +8,7 @@ public abstract class Personal extends Car {
 
     public Personal(Object... arguments) {
         super(arguments);
-        this.has_isofix = (boolean) arguments[2];
+        this.has_isofix = (boolean) arguments[4];
     }
     public boolean getHasIsoFix() {
         return has_isofix;

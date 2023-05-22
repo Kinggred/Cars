@@ -13,7 +13,7 @@ public class VolvoInstruction implements CarInterface {
     @Override
     public Car getNewInstance(Object... arguments) throws ArgumentListTooShortException {
         int given_length = arguments.length;
-        int expected_length = 3;
+        int expected_length = 5;
         if (given_length == expected_length) {
             return new Volvo(arguments);
         }
