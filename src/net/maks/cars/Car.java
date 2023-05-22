@@ -33,6 +33,7 @@ public abstract class Car implements Serializable, Comparable<Car> {
         StringBuilder string_builder = new StringBuilder();
 
         string_builder.append(colour);
+        string_builder.append("|");
         string_builder.append(manufacture_time);
 
         return string_builder.toString();
@@ -40,7 +41,7 @@ public abstract class Car implements Serializable, Comparable<Car> {
 
     @Override
     public int compareTo(Car car) {
-        return this.getHash().compareTo(car.getHash());
+        return 0;
     }
 
     public Date getManufacture_time() {

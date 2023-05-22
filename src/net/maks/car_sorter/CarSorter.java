@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class CarSorter {
-    List<Car> unordered_cars = new ArrayList<>();
+    List<Car> unordered_cars;
 
     public CarSorter(List<Car> cars) {
         this.unordered_cars = cars;

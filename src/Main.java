@@ -1,5 +1,8 @@
 import net.maks.car_factory.Factory;
+import net.maks.car_queue.CarQueue;
 import net.maks.car_sorter.CarSorter;
+import net.maks.car_sorter.sorter_instructions.SortByDate;
+import net.maks.car_sorter.sorter_instructions.SortByDateAndColour;
 import net.maks.cars.personal.Fiat.Fiat;
 import net.maks.cars.personal.Fiat.FiatInstruction;
 import net.maks.cars.personal.Personal;
@@ -8,9 +11,7 @@ import net.maks.cars.personal.Volvo.VolvoInstruction;
 import net.maks.serializer.Serializer;
 import net.maks.cars.Car;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,13 +24,39 @@ public class Main {
         CarSorter sorter = new CarSorter(cars);
 
         PrintCars(cars);
+
         PrintCars(sorter.getCarsSortedByDoM());
 
         PrintCars(sorter.getCarsSortedByColour());
         PrintCars(sorter.getCarsSortedByColourReversed());
 
+        PrintCars(cars);
+
+        ArrayDeque<Car> queue = get_car_queue(cars);
+        CarQueue carQueue = new CarQueue(queue);
+        carQueue.PrintQueue();
+
+        PriorityQueue<Car> sorted_queue = get_car_presorted_queue(cars);
+        CarQueue presorted_car_Queue = new CarQueue(sorted_queue);
+        presorted_car_Queue.PrintQueue();
 
         serializer.serialize("cars.dat", cars);
+    }
+
+    public static ArrayDeque<Car> get_car_queue(List<Car> cars) {
+        ArrayDeque<Car> queue = new ArrayDeque<>();
+        for(Car car: cars) {
+            queue.offer(car);
+        }
+        return queue;
+    }
+
+    public static PriorityQueue<Car> get_car_presorted_queue(List<Car> cars) {
+        PriorityQueue<Car> queue = new PriorityQueue<>(new SortByDateAndColour());
+        for(Car car: cars) {
+            queue.offer(car);
+        }
+        return queue;
     }
 
     public static List<Car> Return10Cars(Factory factory, List<Car> cars){
