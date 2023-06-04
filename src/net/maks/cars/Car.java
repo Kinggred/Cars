@@ -14,11 +14,11 @@ public abstract class Car implements Serializable, Comparable<Car> {
     public Car(Object... arguments) {
         this.horse_power = (int) arguments[0];
         this.door_count = (int) arguments[1];
-        this.manufacture_time = getDatefromString((String) arguments[2]);
+        this.manufacture_time = getDateFromString((String) arguments[2]);
         this.colour = (String) arguments[3];
     }
 
-    private Date getDatefromString(String date_to_convert) {
+    private Date getDateFromString(String date_to_convert) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate local_date = LocalDate.parse(date_to_convert ,dtf);
         return java.sql.Date.valueOf(local_date);
