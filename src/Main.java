@@ -1,3 +1,4 @@
+import net.maks.Tree.Tree;
 import net.maks.car_factory.Factory;
 import net.maks.car_queue.CarQueue;
 import net.maks.car_sorter.CarSorter;
@@ -25,6 +26,20 @@ public class Main {
 
         PrintCars(cars);
 
+        Tree tree = new Tree(new SortByDateAndColour());
+
+        for(Car car: cars) {
+            tree.add(car);
+        }
+        tree.displayDsc();
+
+        System.out.println(tree);
+//        sort(cars, sorter);
+
+        serializer.serialize("cars.dat", cars);
+    }
+
+    public static void sort(List<Car> cars, CarSorter sorter) {
         PrintCars(sorter.getCarsSortedByDoM());
 
         PrintCars(sorter.getCarsSortedByColour());
@@ -39,8 +54,6 @@ public class Main {
         PriorityQueue<Car> sorted_queue = get_car_presorted_queue(cars);
         CarQueue presorted_car_Queue = new CarQueue(sorted_queue);
         presorted_car_Queue.PrintQueue();
-
-        serializer.serialize("cars.dat", cars);
     }
 
     public static ArrayDeque<Car> get_car_queue(List<Car> cars) {
@@ -63,7 +76,7 @@ public class Main {
         factory.addInstruction(new FiatInstruction());
         factory.addInstruction(new VolvoInstruction());
 
-        cars.add(factory.getCarByName("Volvo", 95, 5, "12/05/2002", "red", true));
+        cars.add(factory.getCarByName("Volvo", 95, 5, "12/05/2010", "red", true));
         cars.add(factory.getCarByName("Fiat", 70, 3, "12/09/2003", "blue", false));
         cars.add(factory.getCarByName("Volvo", 95, 5, "12/05/2002", "green", true));
         cars.add(factory.getCarByName("Fiat", 70, 3, "12/02/2008", "blue", false));
@@ -73,6 +86,7 @@ public class Main {
         cars.add(factory.getCarByName("Fiat", 70, 3, "12/05/2007", "green", false));
         cars.add(factory.getCarByName("Volvo", 95, 5, "12/04/2001", "black", true));
         cars.add(factory.getCarByName("Fiat", 70, 3, "12/06/1999", "blue", false));
+        cars.add(factory.getCarByName("Volvo", 70, 3, "12/06/1999", "blue", false));
 
         return cars;
     }
